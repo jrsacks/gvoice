@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+grep -o 'class="fn[^>]*>[^<]*</span\|<abbr class="fn" title="">Me' *Text*.html | sed 's/class="fn">//g' | sed 's/<\/span//g' | sed 's/<abbr class="fn" title="">//g' | sed 's/ \- Text \-.*\:/\---/g' |sort | uniq -c | sort -n
